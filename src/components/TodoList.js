@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Button, Grid } from '@mui/material';
+import { Container, Typography, Button, Grid, Checkbox } from '@mui/material';
 import CreateTask from '../modals/CreateTask';
 import Card from './Card';
 
@@ -39,6 +39,17 @@ const TodoList = () => {
         localStorage.setItem("taskList", JSON.stringify(tempList));
         setTaskList(tempList);
         setModal(false);
+    };
+
+    const handleCheckboxChange = (index) => {
+        const updatedTaskList = taskList.map((task, i) => {
+            if (index === i) {
+                return { ...task, completed: !task.completed };
+            }
+            return task;
+        });
+        localStorage.setItem("taskList", JSON.stringify(updatedTaskList));
+        setTaskList(updatedTaskList);
     };
 
     return (

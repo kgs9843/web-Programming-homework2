@@ -68,11 +68,11 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
                                 name="category"
                                 label="Category"
                             >
-                                <MenuItem value="Work">과제</MenuItem>
-                                <MenuItem value="Personal">일정</MenuItem>
-                                <MenuItem value="Shopping">수업</MenuItem>
-                                <MenuItem value="Others">친구</MenuItem>
-                                <MenuItem value="Others">다른 것</MenuItem>
+                                <MenuItem value="과제">과제</MenuItem>
+                                <MenuItem value="일정">일정</MenuItem>
+                                <MenuItem value="수업">수업</MenuItem>
+                                <MenuItem value="친구">친구</MenuItem>
+                                <MenuItem value="다른것">다른 것</MenuItem>
                             </Select>
                         </FormControl>
                     </div>

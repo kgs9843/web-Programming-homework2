@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card as MuiCard, CardContent, Typography, Button, IconButton, Grid } from '@mui/material';
+import { Card as MuiCard, CardContent, Typography, Button, IconButton, Grid, Checkbox } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import EditTask from '../modals/EditTask';
@@ -32,16 +32,23 @@ const Card = ({ taskObj, index, deleteTask, updateListArray }) => {
     return (
         <MuiCard style={{ marginBottom: '15px' }}>
             <CardContent style={{ backgroundColor: colors.secondaryColor }}>
-                <Typography variant="h6" style={{ color: colors.primaryColor, marginBottom: '10px' }}>
+                <Typography variant="h6" style={{ color: colors.primaryColor, marginBottom: '10px', textDecoration: taskObj.completed ? 'line-through' : 'none' }}>
                     {taskObj.Name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary" component="p" style={{ textDecoration: taskObj.completed ? 'line-through' : 'none' }}>
                     {taskObj.Description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p" style={{ marginTop: '10px' }}>
                     <strong>Category: </strong>{taskObj.Category}
                 </Typography>
                 <Grid container justifyContent="flex-end" style={{ marginTop: '10px' }}>
+                    <Typography variant="body2" color="textSecondary" style={{ marginLeft: '5px', fontWeight: 'bold' }}>
+                        check
+                    </Typography>
+                    <Checkbox
+                        checked={taskObj.completed}
+                        onChange={() => updateListArray({ ...taskObj, completed: !taskObj.completed }, index)}
+                    />
                     <IconButton onClick={toggle} style={{ color: colors.primaryColor }}>
                         <EditIcon />
                     </IconButton>
