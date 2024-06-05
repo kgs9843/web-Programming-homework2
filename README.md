@@ -4,6 +4,7 @@
 
 In the project directory, you can run:
 ### `npm install`
+### 'npm install @mui/icons-material'
 ### `npm start`
 
 Runs the app in the development mode.\
